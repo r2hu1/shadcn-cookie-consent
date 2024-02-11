@@ -126,4 +126,4 @@ do whatever you want.
 
 ## Demo
 
-- [Live demo](https://shadcn.com/cookie-consent)
+- [Live demo](https://shadcn-cookie-consent.vercel.app)
