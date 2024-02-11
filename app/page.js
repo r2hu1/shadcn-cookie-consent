@@ -14,7 +14,7 @@ export default function Home() {
         <p className="text-base md:text-lg opacity-80 font-normal">Beautifully designed, customizable cookie consent for web built on top of shadcn-ui and tailwind-css!</p>
         <div className="flex mt-4 items-center justify-center gap-2">
           <Button onClick={() => { setDemo(!demo) }}>{demo ? "Viewing Demo" : "Live Demo" }</Button>
-          <Button variant="secondary">Install</Button>
+          <Button variant="secondary" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent/blob/master/components/CookieConsent.jsx">Install</a></Button>
         </div>
       </div>
       <div className="mt-20">
