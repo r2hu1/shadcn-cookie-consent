@@ -2,7 +2,9 @@
 
 This repository contains a simple implementation of a cookie consent banner using ShadowUI and TailwindCSS. This solution aims to provide a user-friendly way to comply with cookie consent regulations while maintaining a visually appealing design.
 
-![preview](/public/preview.png)
+![preview](/public/preview-dark.png)
+
+![preview](/public/preview-light.png)
 
 ## How To Use
 
