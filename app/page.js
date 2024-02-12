@@ -6,8 +6,8 @@ import { CookieIcon } from "lucide-react";
 export default function Home() {
 
   return (
-    <main className="px-6 md:px-20 lg:px-32 py-20">
-      <div className="sm:max-w-2xl mx-auto text-center grid gap-2">
+    <main className="md:px-20 lg:px-32 py-20">
+      <div className="px-6 sm:max-w-2xl mx-auto text-center grid gap-2">
         <h1 className="text-3xl md:text-4xl font-bold">Shadcn Cookie Consent</h1>
         <p className="text-base md:text-lg opacity-80 font-normal">Beautifully designed, customizable cookie consent for web built on top of shadcn-ui and tailwind-css!</p>
         <div className="flex mt-4 items-center justify-center gap-2">
@@ -15,9 +15,9 @@ export default function Home() {
           <Button variant="secondary" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent/blob/master/components/CookieConsent.jsx">Install</a></Button>
         </div>
       </div>
-      <div className="mt-20">
+      <div className="mt-20 px-3">
         <div className="w-full sm:max-w-xl mx-auto select-none pointer-events-none" role="img">
-          <div className="bg-secondary/80 rounded-md">
+          <div className="bg-background rounded-md border border-border">
             <div className="grid gap-2">
               <div className="border-b border-border h-14 flex items-center justify-between p-4">
                 <h1 className="text-lg font-medium">We use cookies</h1>
