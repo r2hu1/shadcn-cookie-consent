@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,7 +15,7 @@ export const metadata = {
   keywords: "shadcn, cookie consent, nextjs, tailwind, ui, components",
   author: "r2hu1",
   robots: "index, follow",
-  icons:["/logo.png"]
+  icons: ["/logo.png"]
 };
 
 export const viewport = {
@@ -29,10 +30,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Header/>
-        {children}
-        <Footer/>
-        </body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

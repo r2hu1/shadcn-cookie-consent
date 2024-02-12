@@ -44,15 +44,15 @@ export default function CookieConsent({ demo = false, onAcceptCallback = () => {
     }, []);
 
     return (
-        <div className={cn("fixed z-[200] bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md transition-transform duration-700", !isOpen ? "transition-[opacity,transform] translate-y-8 opacity-0" : "transition-[opacity,transform] translate-y-0 opacity-100", hide && "hidden")}>
-            <div className="bg-secondary rounded-md m-2">
+        <div className={cn("fixed z-[200] bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700", !isOpen ? "transition-[opacity,transform] translate-y-8 opacity-0" : "transition-[opacity,transform] translate-y-0 opacity-100", hide && "hidden")}>
+            <div className="dark:bg-secondary bg-background rounded-md m-3 border border-border shadow-lg">
                 <div className="grid gap-2">
-                    <div className="border-b border-border h-14 flex items-center justify-between p-4">
+                    <div className="border-b border-border dark:border-background/20 h-14 flex items-center justify-between p-4">
                         <h1 className="text-lg font-medium">We use cookies</h1>
                         <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
                     </div>
                     <div className="p-4">
-                        <p className="text-sm font-normal">
+                        <p className="text-sm font-normal text-start">
                             We use cookies to ensure you get the best experience on our website. For more information on how we use cookies, please see our cookie policy.
                             <br />
                             <br />
@@ -61,7 +61,7 @@ export default function CookieConsent({ demo = false, onAcceptCallback = () => {
                             <a href="#" className="text-xs underline">Learn more.</a>
                         </p>
                     </div>
-                    <div className="flex gap-2 p-4 py-5 border-t border-border bg-background/20">
+                    <div className="flex gap-2 p-4 py-5 border-t border-border bg-border/70 dark:bg-background/20">
                         <Button onClick={accept} className="w-full">Accept</Button>
                         <Button onClick={decline} className="w-full" variant="secondary">Decline</Button>
                     </div>

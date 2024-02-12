@@ -1,6 +1,7 @@
 import { CookieIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { FaCodeFork, FaGithub } from "react-icons/fa6";
+import { ModeToggle } from "./ModeToggle";
 
 export default function Header() {
     return (
@@ -11,6 +12,7 @@ export default function Header() {
             <div className="flex items-center gap-2">
                 <Button size="icon" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent"><FaGithub className="h-[1.1rem] w-[1.1rem]" /></a></Button>
                 <Button size="icon" variant="secondary" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent/fork"><FaCodeFork className="h-[1.1rem] w-[1.1rem]" /></a></Button>
+                <ModeToggle/>
             </div>
         </header>
     )
