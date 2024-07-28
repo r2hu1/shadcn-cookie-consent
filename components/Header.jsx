@@ -10,8 +10,8 @@ export default function Header() {
                 <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
             </div>
             <div className="flex items-center gap-2">
-                <Button size="icon" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent"><FaGithub className="h-[1.1rem] w-[1.1rem]" /></a></Button>
-                <Button size="icon" variant="secondary" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent/fork"><FaCodeFork className="h-[1.1rem] w-[1.1rem]" /></a></Button>
+                <Button size="icon" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent"><FaGithub className="h-4 w-4" /></a></Button>
+                <Button size="icon" variant="secondary" asChild><a href="https://github.com/r2hu1/shadcn-cookie-consent/fork"><FaCodeFork className="h-4 w-4" /></a></Button>
                 <ModeToggle/>
             </div>
         </header>
