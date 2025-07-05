@@ -270,7 +270,7 @@ example:
 
 ```jsx
 <CookieConsent variant="default" onAcceptCallback={() => console.log('Accepted')} onDeclineCallback={() => console.log('Declined')}/>
-`
+```
 
 ## Customizing
 
