@@ -6,6 +6,12 @@ import { Button } from "./ui/button";
 export default function Demo() {
   const [demo, setDemo] = useState(0);
 
+  const handleHide = () => {
+    setTimeout(() => {
+      setDemo(0);
+    }, 500);
+  };
+
   return (
     <div className="flex gap-2 flex-wrap">
       <Button
@@ -32,36 +38,24 @@ export default function Demo() {
       {demo === 1 && (
         <CookieConsent
           demo={true}
-          onAcceptCallback={() => {
-            setDemo(0);
-          }}
-          onDeclineCallback={() => {
-            setDemo(0);
-          }}
+          onAcceptCallback={handleHide}
+          onDeclineCallback={handleHide}
         />
       )}
       {demo === 2 && (
         <CookieConsent
           demo={true}
           variant={"small"}
-          onAcceptCallback={() => {
-            setDemo(0);
-          }}
-          onDeclineCallback={() => {
-            setDemo(0);
-          }}
+          onAcceptCallback={handleHide}
+          onDeclineCallback={handleHide}
         />
       )}
       {demo === 3 && (
         <CookieConsent
           demo={true}
           variant={"mini"}
-          onAcceptCallback={() => {
-            setDemo(0);
-          }}
-          onDeclineCallback={() => {
-            setDemo(0);
-          }}
+          onAcceptCallback={handleHide}
+          onDeclineCallback={handleHide}
         />
       )}
     </div>
