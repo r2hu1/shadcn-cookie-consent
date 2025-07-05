@@ -7,16 +7,17 @@ import CookieConsent from "@/components/CookieConsent";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata = {
   title: "Shadcn Cookie Consent",
-  description: "Beautifully designed, customizable cookie consent for web built on top of shadcn/ui and TailwindCSS!",
+  description:
+    "Beautifully designed, customizable cookie consent for web built on top of shadcn/ui and TailwindCSS!",
   keywords: "shadcn, cookie consent, nextjs, tailwind, ui, components",
   author: "r2hu1",
   robots: "index, follow",
-  icons: ["/logo.png"]
+  icons: ["/logo.png"],
 };
 
 export const viewport = {
@@ -25,7 +26,7 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
   themeColor: "#09090b",
-}
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -33,13 +34,13 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
+          defaultTheme="system"
+          enableSystem={true}
           disableTransitionOnChange
         >
           <Header />
           {children}
-          <CookieConsent/>
+          <CookieConsent />
           <Footer />
         </ThemeProvider>
       </body>
