@@ -6,7 +6,7 @@ import { Inspect } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="py-5 px-6 md:px-20 lg:px-32 flex items-center justify-between">
+    <header className="py-5 px-6 max-w-5xl md:px-14 mx-auto flex items-center justify-between">
       <div>
         <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
       </div>

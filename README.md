@@ -4,9 +4,17 @@ This repository contains a implementation of a cookie consent banner using Shadc
 
 ## Preview
 
-![preview](/public/preview.png)
+![preview](/public/prv.png)
 
 ## How To Use
+
+### Using shadcn cli
+
+```bash
+npx shadcn@latest add https://shadcn-cookie-consent.vercel.app/r/cookie-consent.json
+```
+
+### Manual
 
 -   Create a component named CookieConsent.jsx
 -   Make it a client component
