@@ -4,7 +4,7 @@ This repository contains a implementation of a cookie consent banner using Shadc
 
 ## Preview
 
-![preview](/public/preview.png)
+![preview](/public/prv.png)
 
 ## How To Use
 
