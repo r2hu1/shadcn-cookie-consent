@@ -131,7 +131,7 @@ export default function CookieConsent({
     variant === "mini" && (
       <div
         className={cn(
-          "fixed transition-all z-[200] shadow-lg left-4 bottom-0 sm:bottom-4 w-full duration-800 flex items-center justify-between w-full gap-4 bg-card border-t border-border sm:border sm:rounded-lg px-3 py-3 sm:py-2 max-w-3xl",
+          "fixed transition-all z-[200] shadow-lg sm:left-4 left-0 bottom-0 sm:bottom-4 w-full duration-800 flex items-center justify-between w-full gap-4 bg-card border-t border-border sm:border sm:rounded-lg px-3 py-3 sm:py-2 max-w-3xl",
           !isOpen ? "translate-y-32 opacity-0" : "translate-y-0 opacity-100",
           hide && "hidden",
         )}
