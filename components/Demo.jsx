@@ -11,9 +11,22 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import CookieConsent from "./CookieConsent";
+import { Check } from "lucide-react";
+import { Copy } from "lucide-react";
 
 export default function Demo() {
   const [activeVariant, setActiveVariant] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
 
   const handleVariantToggle = (variant) => {
     setActiveVariant((current) => (current === variant ? null : variant));
@@ -80,6 +93,49 @@ export default function Demo() {
                 </Button>
               ))}
             </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              Installation
+              <Badge variant="outline">CLI</Badge>
+            </CardTitle>
+            <CardDescription>
+              Install the cookie consent component using the shadcn CLI
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="relative">
+              <div className="rounded-lg bg-muted p-4 pr-12">
+                <code className="text-sm font-mono">
+                  npx shadcn@latest add
+                  http://shadcn-cookies.vercel.app/r/cookie-consent.json
+                </code>
+              </div>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute right-2 top-2 h-8 w-8 p-0"
+                onClick={() =>
+                  copyToClipboard(
+                    "npx shadcn@latest add https://shadcn-cookie-consent.vercel.app/r/cookie-consent.json",
+                  )
+                }
+              >
+                {copied ? (
+                  <Check className="h-4 w-4 text-green-600" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
+                <span className="sr-only">Copy command</span>
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              This will add the cookie consent component to your project with
+              all necessary dependencies.
+            </p>
           </CardContent>
         </Card>
 
