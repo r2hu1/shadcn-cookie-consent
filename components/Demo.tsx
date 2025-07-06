@@ -11,14 +11,15 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import CookieConsent from "./CookieConsent";
-import { Check } from "lucide-react";
-import { Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+
+type VariantType = "default" | "small" | "mini" | null;
 
 export default function Demo() {
-  const [activeVariant, setActiveVariant] = useState(null);
+  const [activeVariant, setActiveVariant] = useState<VariantType>(null);
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = async (text) => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -28,7 +29,7 @@ export default function Demo() {
     }
   };
 
-  const handleVariantToggle = (variant) => {
+  const handleVariantToggle = (variant: VariantType) => {
     setActiveVariant((current) => (current === variant ? null : variant));
   };
 
@@ -38,7 +39,7 @@ export default function Demo() {
     }, 500);
   };
 
-  const variants = [
+  const variants: { key: VariantType; label: string; description: string }[] = [
     {
       key: "default",
       label: "Default",
@@ -120,7 +121,7 @@ export default function Demo() {
                 className="absolute right-2 top-2 h-8 w-8 p-0"
                 onClick={() =>
                   copyToClipboard(
-                    "npx shadcn@latest add https://shadcn-cookie-consent.vercel.app/r/cookie-consent.json",
+                    "npx shadcn@latest add https://shadcn-cookie-consent.vercel.app/r/cookie-consent.json"
                   )
                 }
               >

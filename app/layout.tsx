@@ -1,9 +1,17 @@
+import Header from '@/components/Header';
+import { ThemeProvider } from '@/components/theme-provider';
+import { CookieConsent } from '@/components/CookieConsent';
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/theme-provider";
-import CookieConsent from "@/components/CookieConsent";
+
+import type { ReactNode } from "react";
+import Footer from '@/components/Footer';
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,9 +36,9 @@ export const viewport = {
   themeColor: "#09090b",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
@@ -41,7 +49,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <CookieConsent />
-          <Footer />
+          < Footer />
         </ThemeProvider>
       </body>
     </html>
