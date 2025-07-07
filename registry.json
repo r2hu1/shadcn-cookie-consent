@@ -11,7 +11,7 @@
       "description": "Beautifully designed, customizable cookie consent for web built on top of shadcn-ui and tailwind-css",
       "files": [
         {
-          "path": "registry/ui/cookie-consent.jsx",
+          "path": "registry/ui/cookie-consent.tsx",
           "type": "registry:component"
         }
       ]
