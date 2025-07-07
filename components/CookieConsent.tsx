@@ -170,24 +170,26 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
       return (
         <div {...commonWrapperProps}>
           <Card className="mx-3 p-0 py-3 shadow-lg">
-            <CardContent className="flex items-center justify-between gap-5 p-0 px-3.5">
-              <CardDescription className="text-sm flex-1">
+            <CardContent className="sm:flex grid gap-4 p-0 px-3.5">
+              <CardDescription className="text-xs sm:text-sm flex-1">
                 {description}
               </CardDescription>
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-2 justify-end sm:gap-3">
                 <Button
                   onClick={handleDecline}
                   size="sm"
                   variant="secondary"
-                  className="text-xs"
+                  className="text-xs h-7"
                 >
-                  <span className="hidden sm:block">Decline</span>
-                  <X className="h-3 w-3 sm:hidden" />
+                  Decline
                   <span className="sr-only sm:hidden">Decline</span>
                 </Button>
-                <Button onClick={handleAccept} size="sm" className="text-xs">
-                  <span className="hidden sm:block">Accept</span>
-                  <Check className="h-3 w-3 sm:hidden" />
+                <Button
+                  onClick={handleAccept}
+                  size="sm"
+                  className="text-xs h-7"
+                >
+                  Accept
                   <span className="sr-only sm:hidden">Accept</span>
                 </Button>
               </div>
