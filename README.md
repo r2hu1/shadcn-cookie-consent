@@ -43,7 +43,16 @@ import { cn } from "@/lib/utils";
 -   Add this code the component
 
 ```jsx
-const CookieConsent = React.forwardRef(
+interface CookieConsentProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: "default" | "small" | "mini";
+  demo?: boolean;
+  onAcceptCallback?: () => void;
+  onDeclineCallback?: () => void;
+  description?: string;
+  learnMoreHref?: string;
+}
+
+const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
   (
     {
       variant = "default",
@@ -81,13 +90,11 @@ const CookieConsent = React.forwardRef(
     React.useEffect(() => {
       try {
         setIsOpen(true);
-        if (document.cookie.includes("cookieConsent=true")) {
-          if (!demo) {
-            setIsOpen(false);
-            setTimeout(() => {
-              setHide(true);
-            }, 700);
-          }
+        if (document.cookie.includes("cookieConsent=true") && !demo) {
+          setIsOpen(false);
+          setTimeout(() => {
+            setHide(true);
+          }, 700);
         }
       } catch (error) {
         console.warn("Cookie consent error:", error);
@@ -102,16 +109,20 @@ const CookieConsent = React.forwardRef(
       className,
     );
 
+    const commonWrapperProps = {
+      ref,
+      className: cn(
+        containerClasses,
+        variant === "mini"
+          ? "left-0 right-0 sm:left-4 bottom-4 w-full sm:max-w-3xl"
+          : "bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md",
+      ),
+      ...props,
+    };
+
     if (variant === "default") {
       return (
-        <div
-          ref={ref}
-          className={cn(
-            containerClasses,
-            "bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md",
-          )}
-          {...props}
-        >
+        <div {...commonWrapperProps}>
           <Card className="m-3 shadow-lg">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-lg">We use cookies</CardTitle>
@@ -151,14 +162,7 @@ const CookieConsent = React.forwardRef(
 
     if (variant === "small") {
       return (
-        <div
-          ref={ref}
-          className={cn(
-            containerClasses,
-            "bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md",
-          )}
-          {...props}
-        >
+        <div {...commonWrapperProps}>
           <Card className="m-3 shadow-lg">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 h-0 px-4">
               <CardTitle className="text-base">We use cookies</CardTitle>
@@ -193,33 +197,28 @@ const CookieConsent = React.forwardRef(
 
     if (variant === "mini") {
       return (
-        <div
-          ref={ref}
-          className={cn(
-            containerClasses,
-            "left-0 right-0 sm:left-4 bottom-4 w-full sm:max-w-3xl",
-          )}
-          {...props}
-        >
+        <div {...commonWrapperProps}>
           <Card className="mx-3 p-0 py-3 shadow-lg">
-            <CardContent className="flex items-center justify-between gap-5 p-0 px-3.5">
-              <CardDescription className="text-sm flex-1">
+            <CardContent className="sm:flex grid gap-4 p-0 px-3.5">
+              <CardDescription className="text-xs sm:text-sm flex-1">
                 {description}
               </CardDescription>
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-2 justify-end sm:gap-3">
                 <Button
                   onClick={handleDecline}
                   size="sm"
                   variant="secondary"
-                  className="text-xs"
+                  className="text-xs h-7"
                 >
-                  <span className="hidden sm:block">Decline</span>
-                  <X className="h-3 w-3 sm:hidden" />
+                  Decline
                   <span className="sr-only sm:hidden">Decline</span>
                 </Button>
-                <Button onClick={handleAccept} size="sm" className="text-xs">
-                  <span className="hidden sm:block">Accept</span>
-                  <Check className="h-3 w-3 sm:hidden" />
+                <Button
+                  onClick={handleAccept}
+                  size="sm"
+                  className="text-xs h-7"
+                >
+                  Accept
                   <span className="sr-only sm:hidden">Accept</span>
                 </Button>
               </div>
@@ -234,10 +233,8 @@ const CookieConsent = React.forwardRef(
 );
 
 CookieConsent.displayName = "CookieConsent";
-
 export { CookieConsent };
 export default CookieConsent;
-
 ```
 
 ## Variants
