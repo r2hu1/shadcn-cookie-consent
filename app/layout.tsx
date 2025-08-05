@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CookieConsent } from "@/components/CookieConsent";
 import { ThemeClientWrapper } from "@/components/ThemeClientWrapper";
+import { VantaBackground } from "@/components/VantaBackground"; 
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -39,6 +40,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={poppins.className}>
+        <VantaBackground />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
