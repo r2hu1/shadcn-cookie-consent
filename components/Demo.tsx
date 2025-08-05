@@ -12,6 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import CookieConsent from "./CookieConsent";
 import { Check, Copy } from "lucide-react";
+import { AnimateInView } from "./AnimateInView";
 
 type VariantType = "default" | "small" | "mini" | null;
 
@@ -60,8 +61,10 @@ export default function Demo() {
   return (
     <div className="bg-background p-4">
       <div className="mx-auto max-w-4xl space-y-6">
+        <AnimateInView>
         <Card>
           <CardHeader>
+            <AnimateInView animationType="fadeLeft">
             <CardTitle className="flex items-center gap-2">
               Cookie Consent Component
               <Badge variant="secondary">Demo</Badge>
@@ -71,32 +74,37 @@ export default function Demo() {
               cookie consent banner. The banner will appear at the bottom of the
               screen.
             </CardDescription>
+            </AnimateInView>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {variants.map((variant) => (
-                <Button
-                  key={variant.key}
-                  onClick={() => handleVariantToggle(variant.key)}
-                  variant={
-                    activeVariant === variant.key ? "default" : "outline"
-                  }
-                  className="h-auto flex-col items-start gap-1 py-3 rounded-xl"
-                >
-                  <span className="font-medium">
-                    {activeVariant === variant.key
-                      ? `Hide ${variant.label}`
-                      : `Show ${variant.label}`}
-                  </span>
-                  <span className="text-xs opacity-70 text-left text-wrap">
-                    {variant.description}
-                  </span>
-                </Button>
-              ))}
-            </div>
+            <AnimateInView animationType="fadeRight">
+              <div className="grid gap-3 sm:grid-cols-3">
+
+                {variants.map((variant) => (
+                  <Button
+                    key={variant.key}
+                    onClick={() => handleVariantToggle(variant.key)}
+                    variant={
+                      activeVariant === variant.key ? "default" : "outline"
+                    }
+                    className="h-auto flex-col items-start gap-1 py-3 rounded-xl"
+                  >
+                    <span className="font-medium">
+                      {activeVariant === variant.key
+                        ? `Hide ${variant.label}`
+                        : `Show ${variant.label}`}
+                    </span>
+                    <span className="text-xs opacity-70 text-left text-wrap">
+                      {variant.description}
+                    </span>
+                  </Button>
+                ))}
+
+              </div></AnimateInView>
           </CardContent>
         </Card>
-
+</AnimateInView>
+<AnimateInView>
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -110,10 +118,12 @@ export default function Demo() {
           <CardContent className="space-y-4">
             <div className="relative">
               <div className="rounded-lg bg-muted p-4 pr-12">
+                <AnimateInView animationType="zoomIn">
                 <code className="text-sm font-mono">
                   npx shadcn@latest add
                   http://shadcn-cookies.vercel.app/r/cookie-consent.json
                 </code>
+                </AnimateInView>
               </div>
               <Button
                 size="sm"
@@ -139,7 +149,7 @@ export default function Demo() {
             </p>
           </CardContent>
         </Card>
-
+</AnimateInView>
         <Card>
           <CardHeader>
             <CardTitle>Usage</CardTitle>

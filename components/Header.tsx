@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { FaCodeFork, FaGithub } from "react-icons/fa6";
 import { ModeToggle } from "./ModeToggle";
 import { Inspect } from "lucide-react";
+import { AnimateInView } from "./AnimateInView";
 
 export default function Header() {
   return (
@@ -10,7 +11,9 @@ export default function Header() {
       <div>
         <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
       </div>
+        <AnimateInView animationType="fadeDown">
       <div className="flex items-center gap-2">
+      
         <Button size="sm" asChild className="rounded-xl">
           <a
             className="flex items-center gap-2"
@@ -20,6 +23,7 @@ export default function Header() {
             Installation
           </a>
         </Button>
+        
         <Button size="sm" variant="secondary" asChild className="rounded-xl">
           <a
             className="flex items-center gap-2"
@@ -31,6 +35,7 @@ export default function Header() {
         </Button>
         <ModeToggle />
       </div>
+      </AnimateInView>
     </header>
   );
 }
