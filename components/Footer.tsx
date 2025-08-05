@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="pb-10 text-center px-6">
       <div>
-        <p className="text-sm font-normal">
+        <p className="text-sm font-normal text-gray-600">
           Built by{" "}
           <a href="https://github.com/r2hu1" className="underline">
             r2hu1
