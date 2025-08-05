@@ -1,17 +1,16 @@
-import Header from '@/components/Header';
-import { ThemeProvider } from '@/components/theme-provider';
-import { CookieConsent } from '@/components/CookieConsent';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { CookieConsent } from "@/components/CookieConsent";
+import { ThemeClientWrapper } from "@/components/ThemeClientWrapper";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import type { ReactNode } from "react";
-import Footer from '@/components/Footer';
 
 interface RootLayoutProps {
   children: ReactNode;
 }
-
-
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,7 +37,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" >
+    <html lang="en" suppressHydrationWarning>
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
@@ -46,10 +45,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem={true}
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <CookieConsent />
-          < Footer />
+          <ThemeClientWrapper>
+            <Header />
+            {children}
+            <CookieConsent />
+            <Footer />
+          </ThemeClientWrapper>
         </ThemeProvider>
       </body>
     </html>
